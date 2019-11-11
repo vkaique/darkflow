@@ -113,10 +113,11 @@ def shuffle(self):
                 try:
                     inp, new_feed = self._batch(train_instance)
                 except ZeroDivisionError:
-                    print("This image's width or height are zeros: ", train_instance[0])
-                    print('train_instance:', train_instance)
-                    print('Please remove or fix it then try again.')
-                    raise
+                    # print("This image's width or height are zeros: ", train_instance[0])
+                    # print('train_instance:', train_instance)
+                    # print('Please remove or fix it then try again.')
+                    # raise
+                    pass
 
                 if inp is None: continue
                 x_batch += [np.expand_dims(inp, 0)]
