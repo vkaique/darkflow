@@ -159,10 +159,13 @@ def to_darknet(self):
         for var in tf.global_variables():
             name = var.name.split(':')[0]
             var_name = name.split('-')
-            l_idx = int(var_name[0])
-            w_sig = var_name[1].split('/')[-1]
-            l = darknet_ckpt.layers[l_idx]
-            l.w[w_sig] = var.eval(self.sess)
+            try:
+                l_idx = int(var_name[0])
+                w_sig = var_name[1].split('/')[-1]
+                l = darknet_ckpt.layers[l_idx]
+                l.w[w_sig] = var.eval(self.sess)
+            except:
+                pass
 
     for layer in darknet_ckpt.layers:
         for ph in layer.h:
