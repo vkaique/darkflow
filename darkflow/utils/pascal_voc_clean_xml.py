@@ -18,6 +18,7 @@ def pascal_voc_clean_xml(ANN, pick, exclusive = False):
     dumps = list()
     cur_dir = os.getcwd()
     os.chdir(ANN)
+    print(os.listdir('.'))
     annotations = os.listdir('.')
     annotations = glob.glob(str(annotations)+'*.xml')
     size = len(annotations)
