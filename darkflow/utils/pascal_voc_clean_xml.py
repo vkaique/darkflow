@@ -18,7 +18,7 @@ def pascal_voc_clean_xml(ANN, pick, exclusive = False):
     dumps = list()
     cur_dir = os.getcwd()
     os.chdir(ANN)
-    annotations = os.listdir('/content/gdrive/My Drive/Cellere/Yolo/display/cfg/yolov2_custom.cfg parsing /content/gdrive/My Drive/Cellere/Yolo/data/annotations/')
+    annotations = os.listdir('/content/gdrive/My Drive/Cellere/Yolo/data/annotations/')
     annotations = glob.glob(str(annotations)+'*.xml')
     size = len(annotations)
 
