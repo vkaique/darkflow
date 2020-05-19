@@ -17,14 +17,14 @@ pool = ThreadPool()
 def _save_ckpt(self, step, loss_profile):
     file = '{}-{}{}'
     model = self.meta['name']
-
+    backup = '/content/gdrive/My Drive/Cellere/Yolo/display/ckpt/'
     profile = file.format(model, step, '.profile')
-    profile = os.path.join(self.FLAGS.backup, profile)
+    profile = os.path.join(backup, profile)
     with open(profile, 'wb') as profile_ckpt: 
         pickle.dump(loss_profile, profile_ckpt)
 
     ckpt = file.format(model, step, '')
-    ckpt = os.path.join(self.FLAGS.backup, ckpt)
+    ckpt = os.path.join(backup, ckpt)
     self.say('Checkpoint at step {}'.format(step))
     self.saver.save(self.sess, ckpt)
 
