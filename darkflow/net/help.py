@@ -28,6 +28,7 @@ def load_from_ckpt(self):
             self.FLAGS.load = int(load_point)
     
     load_point = os.path.join('/content/gdrive/My Drive/Cellere/Yolo/display/ckpt/', self.meta['name'])
+    print(load_point)
     load_point = '{}-{}'.format(load_point, self.FLAGS.load)
     self.say('Loading from {}'.format(load_point))
     try: self.saver.restore(self.sess, load_point)
