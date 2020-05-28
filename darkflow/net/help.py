@@ -20,7 +20,6 @@ def build_train_op(self):
 
 def load_from_ckpt(self):
     if self.FLAGS.load < 0: # load lastest ckpt
-        # with open(os.path.join('/content/gdrive/My Drive/Facens/fruit_detection/ckpt/', 'checkpoint'), 'r') as f:
         with open(os.path.join(self.FLAGS.backup, 'checkpoint'), 'r') as f:
             last = f.readlines()[-1].strip()
             load_point = last.split(' ')[1]        
@@ -28,7 +27,6 @@ def load_from_ckpt(self):
             load_point = load_point.split('-')[-1]
             self.FLAGS.load = int(load_point)
     
-    # load_point = os.path.join('/content/gdrive/My Drive/Facens/fruit_detection/ckpt/', self.meta['name'])
     load_point = os.path.join(self.FLAGS.backup, self.meta['name'])
     load_point = '{}-{}'.format(load_point, self.FLAGS.load)
     self.say('Loading from {}'.format(load_point))
