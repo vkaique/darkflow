@@ -17,7 +17,7 @@ pool = ThreadPool()
 def _save_ckpt(self, step, loss_profile):
     file = '{}-{}{}'
     model = self.meta['name']
-    backup = '/content/gdrive/My Drive/Facens/fruit_detection/ckpt/'
+    backup = os.path.join(self.FLAGS.backup, profile)
     profile = file.format(model, step, '.profile')
     profile = os.path.join(backup, profile)
     with open(profile, 'wb') as profile_ckpt: 
