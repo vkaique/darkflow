@@ -16,9 +16,9 @@ pool = ThreadPool()
 
 def _save_ckpt(self, step, loss_profile):
     file = '{}-{}{}'
-    model = self.meta['name']
-    backup = os.path.join(self.FLAGS.backup, profile)
+    model = self.meta['name']  
     profile = file.format(model, step, '.profile')
+    backup = os.path.join(self.FLAGS.backup, profile)
     profile = os.path.join(backup, profile)
     with open(profile, 'wb') as profile_ckpt: 
         pickle.dump(loss_profile, profile_ckpt)
